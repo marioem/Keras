@@ -66,3 +66,21 @@ history <- model2 %>% fit(
 )
 
 model %>% predict(x_test[1:10,])
+
+# Wrapping up
+# - You usually need to do quite a bit of preprocessing on your raw data in order 
+# to be able to feed it—as tensors—into a neural network. Sequences of words can 
+# be encoded as binary vectors, but there are other encoding options, too.
+# - Stacks of dense layers with relu activations can solve a wide range of problems
+# (including sentiment classification), and you’ll likely use them frequently.
+# - In a binary classification problem (two output classes), your network should 
+# end with a dense layer with one unit and a sigmoid activation: the output of 
+# your network should be a scalar between 0 and 1, encoding a probability.
+# - With such a scalar sigmoid output on a binary classification problem, the loss
+# function you should use is binary_crossentropy.
+# - The rmsprop optimizer is generally a good enough choice, whatever your problem.
+# That’s one less thing for you to worry about.
+# - As they get better on their training data, neural networks eventually start 
+# overfitting and end up obtaining increasingly worse results on data they’ve never
+# seen before. Be sure to always monitor performance on data that is outside of 
+# the training set.

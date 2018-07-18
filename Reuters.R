@@ -76,3 +76,21 @@ predictions <- model %>% predict(x_test)
 
 str(predictions)
 plot(predictions[2222,], type = "l")
+
+# Wrapping up
+# - If you’re trying to classify data points among N classes, your network should
+# end with a dense layer of size N.
+# - In a single-label, multiclass classification problem, your network should end
+# with a softmax activation so that it will output a probability distribution over
+# the N output classes.
+# - Categorical crossentropy is almost always the loss function you should use for
+# such problems. It minimizes the distance between the probability distributions 
+# output by the network and the true distribution of the targets.
+# - There are two ways to handle labels in multiclass classification:
+#     - Encoding the labels via categorical encoding (also known as one-hot 
+#       encoding) and using categorical_crossentropy as a loss function
+#     - Encoding the labels as integers and using the sparse_categorical_crossentropy
+#       loss function
+# - If you need to classify data into a large number of categories, you should
+# avoid creating information bottlenecks in your network due to intermediate layers
+# that are too small.
